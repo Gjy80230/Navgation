@@ -4,13 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
     <title>MyTab</title>
-</head>
+    <link rel="stylesheet" href="/style.e308ff8e.css">
+    <style>.icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }</style>
+<script src="/style.e308ff8e.js"></script></head>
 <body>
-    <header>
+    <header class="globalHead">
         <input type="text">
         <button>搜索</button>
     </header>
-    <main>
+    <main class="globalMain">
         <ul class="siteList">
             <li>
                 <div class="site">
@@ -25,9 +33,25 @@
                 </div>
             </li>
             <li>
-                <div class="addButton">新增</div>
+                <div class="site">
+                    <div class="logo">A</div>
+                    <div class="link">acfun.cn</div>
+                </div>
+            </li>
+            <li>
+                <div class="addButton">
+                    <div class="iconWrapper">
+                        <svg class="icon">
+                            <use xlink:href="#icon-tianjia1"></use>
+                        </svg>
+                    </div>
+                    <div class="text">
+                        新增
+                    </div>
+                </div>
             </li>
         </ul>
     </main>
+    <script src="//at.alicdn.com/t/font_2834373_q69yj5hp0q.js"></script>
 </body>
 </html>
