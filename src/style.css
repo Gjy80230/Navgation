@@ -3,16 +3,18 @@
 *{box-sizing: border-box;}
 *:before, *:after{box-sizing: border-box;}
 ul,ol{list-style: none;}
-
+a{text-decoration: none; color: inherit;}
 
 /* css style */
 body{background: #eee;}
 .globalHead{
     margin: 20px;
+}
+.searchForm{
     display: flex;
     justify-content: space-between;
 }
-.globalHead > input{
+.searchForm > input{
     width: 100%;
     height: 35px;
     margin-right: 15px;
@@ -20,7 +22,7 @@ body{background: #eee;}
     border-radius: 5px;
     padding: 10px;
 }
-.globalHead > button{
+.searchForm > button{
     padding: 0 24px;
     white-space: nowrap;
     font-size: 15px;
