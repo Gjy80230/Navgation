@@ -1,31 +1,13 @@
 const $siteList = $('.siteList')
 const $lastLi = $siteList.find('li.last')
-const hashMap = [
+const x = localStorage.getItem('x')
+const xObject = JSON.parse(x)
+const hashMap = xObject || [
     {logo: 'A', url: 'https://www.acfun.cn/'},
     {logo: 'B', url: 'https://www.bilibili.com/'},
 ]
-hashMap.forEach((node)=>{
-    const $li = $(`
-    <li>
-        <a href="${node.url}">
-            <div class="site">
-                <div class="logo">${node.logo}</div>
-                <div class="link">${node.url}</div>
-            </div>
-        </a> 
-    </li>
-    `).insertBefore($lastLi)
-})
 
-$('.addButton').on('click', ()=>{
-    let url = window.prompt("请输入要添加的网址：")
-    if(url.indexOf('http') !== 0){
-        url = 'https://' + url
-    }
-    hashMap.push({
-        logo: url[0],
-        url: url
-    })
+let render = ()=>{
     $siteList.find('li:not(.last)').remove()
     hashMap.forEach((node)=>{
         const $li = $(`
@@ -39,4 +21,22 @@ $('.addButton').on('click', ()=>{
         </li>
         `).insertBefore($lastLi)
     })
+}
+render()
+
+$('.addButton').on('click', ()=>{
+    let url = window.prompt("请输入要添加的网址：")
+    if(url.indexOf('http') !== 0){
+        url = 'https://' + url
+    }
+    hashMap.push({
+        logo: url[0],
+        url: url
+    })
+    render()
 })
+
+window.onbeforeunload = ()=>{
+    const string = JSON.stringify(hashMap)
+    localStorage.setItem('x', string)
+}
