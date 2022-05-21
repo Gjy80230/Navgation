@@ -11,20 +11,32 @@ const simplifyUrl = (url)=>{
     return url.replace('https://', '')
     .replace('http://', '')
     .replace('www.', '')
+    .replace(/\/.*/, '')    //删除 / 开头的内容
 }
 const render = ()=>{
     $siteList.find('li:not(.last)').remove()
-    hashMap.forEach((node)=>{
+    hashMap.forEach((node, index)=>{
         const $li = $(`
         <li>
-            <a href="${node.url}">
                 <div class="site">
                     <div class="logo">${node.logo}</div>
                     <div class="link">${simplifyUrl(node.url)}</div>
+                    <div class="close">
+                        <svg class="icon">
+                            <use xlink:href="#icon-close1"></use>
+                        </svg>
+                    </div>
                 </div>
-            </a> 
         </li>
         `).insertBefore($lastLi)
+        $li.on('click', ()=>{
+            window.open(node.url)
+        })
+        $li.on('click', '.close', (e)=>{
+            e.stopPropagation() //阻止冒泡
+            hashMap.splice(index, 1)
+            render()
+        })
     })
 }
 render()
@@ -35,7 +47,7 @@ $('.addButton').on('click', ()=>{
         url = 'https://' + url
     }
     hashMap.push({
-        logo: url[0],
+        logo: simplifyUrl(url)[0].toUpperCase(),
         url: url
     })
     render()

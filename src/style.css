@@ -53,6 +53,7 @@ body{background: #eee;}
     background: #fff;
     border-radius: 5px;
     padding: 20px 0;
+    position: relative;
 }
 .siteList .site > .logo{
     width: 64px;
@@ -65,6 +66,15 @@ body{background: #eee;}
 .siteList .site > .link{
     font-size: 14px;
     margin-top: 4px;
+}
+.siteList .site .close{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+.siteList .site .close .icon{
+    width: 25px;
+    height: 25px;
 }
 
 .siteList .addButton{
