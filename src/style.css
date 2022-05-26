@@ -22,7 +22,7 @@ body{background: #eee;}
 
 @media (min-width: 500px){
     .searchForm{
-        max-width: 400px;
+        max-width: 500px;
         margin-left: auto;
         margin-right: auto;
     }
